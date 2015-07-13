@@ -1,1 +1,1 @@
-$('#edit_question_<%= @question.id %>')
+$('#<%= @question.id %>').children().first().empty().append("<%= j render(@question) %>");

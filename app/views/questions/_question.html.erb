@@ -1,11 +1,19 @@
-<%= form_for question, :remote => true, :authenticity_token => true do |f| %>
-  <%= question.description_a %>
-  <%= image_tag question.image_a.url(:thumb) %>
-  <%= f.submit "Vote A", :value => question.description_a %>
-  <%= question.description_b %>
-  <%= image_tag question.image_b.url(:thumb) %>
-  <%= f.submit "Vote B", :value => question.description_b %>
-  <%= link_to "(remove)", question, method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
-<% end %>
 
-<br><br>
+
+<div id="<%= question.id %>">
+  <%= link_to question.description_a, question_path(question,
+                                                    question: {
+                                                      votes_a: question.votes_a + 1
+                                                    }), method: :patch, remote: true %>
+  <%= question.votes_a %>
+  <br>
+  or
+  <br>
+  <%= link_to question.description_b, question_path(question,
+                                                    question: {
+                                                      votes_b: question.votes_b + 1
+                                                      }), method: :patch, remote: true %>
+  <%= question.votes_b %>
+
+  <br><br>
+</div>

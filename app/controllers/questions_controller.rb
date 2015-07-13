@@ -22,18 +22,12 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(question_params)
-
-    if params[:value] == @question.description_a
-binding.pry
-      flash[:alert] = "You voted for choice A!"
-      @question.votes_a += 1;
-    elsif params[:value] == @question.description_b
-      flash[:alert] = "You voted for choice B!"
-      @question.votes_b += 1;
-    else
-      flash[:alert] = "You didn't select a choice. Try again!"
+    @question = Question.find(params[:id])
+    @question.update(question_params)
+    respond_to do |format|
+      format.js
     end
+
   end
 
   def destroy
