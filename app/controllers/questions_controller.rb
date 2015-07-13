@@ -8,10 +8,14 @@ class QuestionsController < ApplicationController
   end
 
   def create
+
     @question = Question.new(question_params)
     if @question.save
       flash[:notice] = "Your question has been added!"
-      redirect_to questions_path
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js
+      end
     else
       flash[:alert] = "There was a problem adding your question. Please try again."
       render :new

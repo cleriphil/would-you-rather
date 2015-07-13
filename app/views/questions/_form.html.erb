@@ -1,7 +1,7 @@
 <%= render "layouts/errors", :object => @question %>
 
 <h2>Would you rather...</h2>
-<%= bootstrap_form_for @question, :url => questions_path, :html => { :multipart => true } do |f| %>
+<%= bootstrap_form_for @question, :url => questions_path, :html => { :multipart => true }, :remote => true, :authenticity_token => true do |f| %>
   <%= f.text_field :description_a, hide_label: true, placeholder: "Choice A" %>
   <%= f.file_field :image_a, label: "Choice A Image" %>
   <%= f.text_field :description_b,  hide_label: true, placeholder: "Choice B" %>
