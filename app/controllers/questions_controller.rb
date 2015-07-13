@@ -8,7 +8,6 @@ class QuestionsController < ApplicationController
   end
 
   def create
-
     @question = Question.new(question_params)
     if @question.save
       flash[:notice] = "Your question has been added!"
@@ -22,8 +21,23 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def update
+    @question = Question.find(question_params)
+
+    if params[:value] == @question.description_a
+binding.pry
+      flash[:alert] = "You voted for choice A!"
+      @question.votes_a += 1;
+    elsif params[:value] == @question.description_b
+      flash[:alert] = "You voted for choice B!"
+      @question.votes_b += 1;
+    else
+      flash[:alert] = "You didn't select a choice. Try again!"
+    end
+  end
+
   private
   def question_params
-    params.require(:question).permit(:description_a, :image_a, :description_b, :image_b)
+    params.require(:question).permit(:description_a, :image_a, :votes_a, :description_b, :image_b, :votes_b)
   end
 end
