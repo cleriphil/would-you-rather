@@ -36,6 +36,14 @@ binding.pry
     end
   end
 
+  def destroy
+    @question = Question.destroy(params[:id])
+    respond_to do |format|
+      format.html { redirect_to questions_path }
+      format.js
+    end
+  end
+
   private
   def question_params
     params.require(:question).permit(:description_a, :image_a, :votes_a, :description_b, :image_b, :votes_b)

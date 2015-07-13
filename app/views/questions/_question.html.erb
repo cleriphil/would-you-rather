@@ -5,7 +5,7 @@
   <%= question.description_b %>
   <%= image_tag question.image_b.url(:thumb) %>
   <%= f.submit "Vote B", :value => question.description_b %>
+  <%= link_to "(remove)", question, method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
 <% end %>
 
 <br><br>
-s
