@@ -11,6 +11,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootstrap_form'
 gem 'rest-client'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'devise'
 
 group :development do
   gem 'byebug'
