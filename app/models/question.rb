@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
+  belongs_to :user
   validates_presence_of :description_a
   validates_presence_of :description_b
   has_attached_file :image_a, :styles => { :medium => "300x300>", :thumb => "100x100>" }

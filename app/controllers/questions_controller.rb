@@ -11,6 +11,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     if @question.save
       flash[:notice] = "Your question has been added!"
+      # @question.user = current_user
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js
