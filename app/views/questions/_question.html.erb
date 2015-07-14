@@ -1,6 +1,3 @@
-
-
-
 <div class="well" id="<%= question.id %>">
 
   <div class="choice third">
@@ -19,7 +16,7 @@
   </div>
 
   <div class="or third">
-  or
+    or
   </div>
 
   <div class="choice third">
@@ -32,12 +29,13 @@
         <%= link_to question.description_b, question_path(question,
                                                           question: {
                                                             votes_b: question.votes_b + 1
-                                                            }), method: :patch, remote: true %>
+                                                            }), method: :patch, remote: true, class: "style_link" %>
       </span>
       <span id="<%= question.id %>_votes_b"></span>
     </div>
 
-    </div>
   </div>
+    <br><br>
+    <p class="text-right"><%= question.votes_a + question.votes_b %> total vote(s)</p>
 
 </div>

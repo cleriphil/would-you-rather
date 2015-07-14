@@ -1,9 +1,12 @@
-<h1>Questions</h1>
-<% if user_signed_in?  %>
-  <%= link_to "New Question", new_question_path, id: "new_link", remote: true %>
-<% else %>
-  <p>Please sign in to add a question.</p>
-<% end %>
-<div id="questions_list">
+<h1 class="text-center">Would you rather...</h1>
+<div class="container">
   <%= render @questions %>
+
+  <% if user_signed_in?  %>
+    <%= link_to "New Question", new_question_path, id: "new_link", remote: true %>
+  <% else %>
+    <p>Please sign in to add a question.</p>
+  <% end %>
+
+  <!-- <div id="questions_list"></div> -->
 </div>

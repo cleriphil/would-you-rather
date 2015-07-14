@@ -17,6 +17,10 @@
  @import "bootstrap";
 
 
+body {
+  padding-top: 50px;
+  font-family: 'Oswald', sans-serif;
+  }
 .third {
   position: relative;
   width: 300px;
@@ -35,6 +39,10 @@
   left: 0px;
   background: rgba(154,67,67,0.9);
   text-align: center;
+  padding-top: 10px;
+  color: black;
+
+
 }
 .third .caption .style_link {
   color: black;
@@ -43,4 +51,22 @@
 .style_image {
   border: 1px solid black;
   border-radius: 10px;
+}
+
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}
+
+.navbar-inverse {
+  border: none;
+}
+ .navbar-header a.navbar-brand {
+  color: #C66376;
+}
+.navbar-inverse .navbar-nav > li > a {
+color: #C66376;
 }
