@@ -1,9 +1,9 @@
 class Question < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :description_a
-  # validates :description_a, length: { maximum: 30 }
+  validates :description_a, length: { maximum: 70 }
   validates_presence_of :description_b
-  # validates :description_b, length: { maximum: 30 }
+  validates :description_b, length: { maximum: 70 }
   has_attached_file :image_a, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   has_attached_file :image_b, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_presence :image_a

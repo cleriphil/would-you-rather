@@ -1,4 +1,4 @@
 $('#new_question').remove();
 $('#new_link').show();
 // $('#questions_list').append('<%= j render(@question) %>');
-$('#edit_question_<%= @question.id %>').onClick();
+$('#edit_question_<%= @question.id %>').submitOnClick();

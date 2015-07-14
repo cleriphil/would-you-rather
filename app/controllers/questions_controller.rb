@@ -9,9 +9,10 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+    current_user.questions.push(@question)
     if @question.save
       flash[:notice] = "Your question has been added!"
-      # @question.user = current_user
+      @question.user = current_user
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js
@@ -20,6 +21,10 @@ class QuestionsController < ApplicationController
       flash[:alert] = "There was a problem adding your question. Please try again."
       render :new
     end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
   end
 
   def update

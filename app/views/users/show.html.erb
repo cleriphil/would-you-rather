@@ -1,0 +1,10 @@
+<% if current_user.questions.empty? %>
+  <h2>No questions, yet.</h2>
+<% else %>
+
+  <% current_user.questions.each do |question| %>
+
+    <%= render "questions/question", :question => question %>
+
+  <% end %>
+<% end %>
