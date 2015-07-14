@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = Question.all
+    @questions = Question.all.sort_by{ |object| [object.created_at]}.reverse
   end
 
   def new
