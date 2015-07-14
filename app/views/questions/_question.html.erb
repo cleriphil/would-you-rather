@@ -1,19 +1,29 @@
 
 
+
 <div id="<%= question.id %>">
-  <%= link_to question.description_a, question_path(question,
-                                                    question: {
-                                                      votes_a: question.votes_a + 1
-                                                    }), method: :patch, remote: true %>
-  <%= question.votes_a %>
+  <%= image_tag question.image_a.url(:thumb) %>
+
+  <span id="<%= question.id %>_description_a">
+    <%= link_to question.description_a, question_path(question,
+                                                      question: {
+                                                        votes_a: question.votes_a + 1
+                                                      }), method: :patch, remote: true %>
+  </span>
+  <span id="<%= question.id %>_votes_a"><%= question.votes_a %></span>
+  <br>
   <br>
   or
   <br>
-  <%= link_to question.description_b, question_path(question,
-                                                    question: {
-                                                      votes_b: question.votes_b + 1
-                                                      }), method: :patch, remote: true %>
-  <%= question.votes_b %>
+  <%= image_tag question.image_b.url(:thumb) %>
+
+  <span id="<%= question.id %>_description_b">
+    <%= link_to question.description_b, question_path(question,
+                                                      question: {
+                                                        votes_b: question.votes_b + 1
+                                                        }), method: :patch, remote: true %>
+  </span>
+  <span id="<%= question.id %>_votes_b"><%= question.votes_b %></span>
 
   <br><br>
 </div>

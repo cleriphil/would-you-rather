@@ -24,6 +24,10 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     @question.update(question_params)
+    total = @question.votes_a + @question.votes_b
+    @percent_votes_a = (((@question.votes_a.to_f)/total.to_f)*100).round(2)
+
+    @percent_votes_b = (((@question.votes_b.to_f)/total.to_f)*100).round(2)
     respond_to do |format|
       format.js
     end
