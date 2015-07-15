@@ -1,5 +1,6 @@
 class Question < ActiveRecord::Base
   belongs_to :user
+  has_many :comments
   validates_presence_of :description_a
   validates :description_a, length: { maximum: 70 }
   validates_presence_of :description_b

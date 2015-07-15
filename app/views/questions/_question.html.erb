@@ -38,4 +38,14 @@
   <% if current_user && current_user.id == question.user_id %>
     <%= link_to "Delete", question, method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
   <% end %>
+
+  <%= render 'comments/form' %>
+
+
+  <% question.comments.each do |comment| %>
+        <%= comment.author  %>
+        <%= comment.comment  %>
+  <% end %>
+
+
 </div>
