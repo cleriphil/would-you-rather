@@ -1,16 +1,16 @@
 <div class="well" id="<%= question.id %>">
 
   <div class="image_choice col_choice">
-    <%= image_tag question.image_a.url(:medium), :class => "style_image" %>
+    <%=link_to (image_tag question.image_a.url(:medium), class: "style_image"), question_path(question,
+                                                      question: {
+                                                        votes_a: question.votes_a + 1
+                                                      }), method: :patch, remote: true %>
+
+
 
     <div class="caption">
 
-      <span id="<%= question.id %>_description_a">
-        <%= link_to question.description_a, question_path(question,
-                                                          question: {
-                                                            votes_a: question.votes_a + 1
-                                                          }), method: :patch, remote: true, class: "style_link" %>
-                                                        </span>
+      <span id="<%= question.id %>_description_a"><%= question.description_a %></span>
       <span id="<%= question.id %>_votes_a"></span>
     </div>
   </div>
@@ -21,16 +21,13 @@
 
   <div class="image_choice col_choice">
 
-    <%= image_tag question.image_b.url(:medium), :class => "style_image"  %>
-
+    <%=link_to (image_tag question.image_b.url(:medium), class: "style_image"), question_path(question,
+                                                  question: {
+                                                    votes_b: question.votes_b + 1
+                                                  }), method: :patch, remote: true %>
     <div class="caption">
 
-      <span id="<%= question.id %>_description_b">
-        <%= link_to question.description_b, question_path(question,
-                                                          question: {
-                                                            votes_b: question.votes_b + 1
-                                                            }), method: :patch, remote: true, class: "style_link" %>
-      </span>
+      <span id="<%= question.id %>_description_b"><%= question.description_b %></span>
       <span id="<%= question.id %>_votes_b"></span>
     </div>
 
