@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
   root :to => "questions#index"
-  resources :users  
+  resources :users
 
-  resources :questions
+  resources :questions, :except => [:show] do
+    resources :comments, :except => [:show, :index, :new]
+  end
 
 end
