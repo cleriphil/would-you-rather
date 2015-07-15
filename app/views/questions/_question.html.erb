@@ -1,6 +1,6 @@
 <div class="well" id="<%= question.id %>">
 
-  <div class="choice third">
+  <div class="image_choice col_choice">
     <%= image_tag question.image_a.url(:medium), :class => "style_image" %>
 
     <div class="caption">
@@ -15,11 +15,11 @@
     </div>
   </div>
 
-  <div class="or third">
+  <div class="or col_choice">
     or
   </div>
 
-  <div class="choice third">
+  <div class="image_choice col_choice">
 
     <%= image_tag question.image_b.url(:medium), :class => "style_image"  %>
 

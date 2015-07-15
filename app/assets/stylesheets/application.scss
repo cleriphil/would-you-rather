@@ -20,18 +20,17 @@
 body {
   padding-top: 50px;
   font-family: 'Oswald', sans-serif;
-  }
-.third {
+}
+
+.col_choice {
   position: relative;
   width: 300px;
   height: 200px;
   display: inline;
 }
-.choice {
-  border-radius: 10px;
-}
 
-.third .caption {
+
+.image_choice .caption {
   position: absolute;
   width: 301px;
   height: 50px;
@@ -44,7 +43,7 @@ body {
 
 
 }
-.third .caption .style_link {
+.col_choice .caption .style_link {
   color: black;
 }
 
