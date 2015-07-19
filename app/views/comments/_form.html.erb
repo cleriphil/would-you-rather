@@ -1,1 +1,9 @@
 
+<%= bootstrap_form_for [@question, @comment], remote: true do |f| %>
+  <%= render "layouts/errors", :object => @comment %>
+
+  <%= f.text_area :comment, hide_label: true, placeholder: "Add a comment" %>
+  <%= f.text_field :author, hide_label: true, placeholder: "Your Name" %>
+  <%= f.submit "Add" %>
+
+<% end %>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :questions, :except => [:show] do
-    resources :comments, :except => [:show, :index, :new]
+    resources :comments, :except => [:show, :index]
   end
 
 end

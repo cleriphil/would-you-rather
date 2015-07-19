@@ -5,21 +5,23 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    current_user.questions.push(@question)
+    @question = Question.find(params[:question_id])
+    @user = current_user
+    @comment = @question.comments.new(comment_params)
+    @user.comments.push(@comment)
     if @comment.save
-      flash[:notice] = "Your question has been added!"
-      @comment.user = current_user
-      respond_to do |format|
-        format.html { redirect_to root_path }
-        format.js
-      end
+      flash[:notice] = "Your comment has been added."
     else
-      flash[:alert] = "There was a problem adding your question. Please try again."
-      render :new
+      flash[:alert] = "There was a problem adding your comment."
+    end
+    respond_to do |format|
+      format.html {redirect_to root_path}
+      format.js
     end
   end
-   def comment_params
-    params.require(:comment).permit(:author, :comment, :user_id, :question_id)
+
+private
+  def comment_params
+    params.require(:comment).permit(:author, :comment)
   end
 end
