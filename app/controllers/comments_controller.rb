@@ -26,6 +26,13 @@ class CommentsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @question = Question.find(params[:question_id])
+    @comment = Comment.find(params[:id])
+    redirect_to question_path(@question)
+
+  end
+
 private
   def comment_params
     params.require(:comment).permit(:author, :comment)
