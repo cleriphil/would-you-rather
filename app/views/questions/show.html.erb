@@ -1,0 +1,51 @@
+<div class="well" id="<%= @question.id %>">
+
+  <div class="image_choice col_choice">
+    <%=link_to (image_tag @question.image_a.url(:medium), class: "style_image"), question_path(@question,
+                                                      question: {
+                                                        votes_a: @question.votes_a + 1
+                                                      }), method: :patch, remote: true %>
+
+
+
+    <div class="caption">
+
+      <span id="<%= @question.id %>_description_a"><%= @question.description_a %></span>
+      <span id="<%= @question.id %>_votes_a"></span>
+    </div>
+  </div>
+
+  <div class="or col_choice">
+    or
+  </div>
+
+  <div class="image_choice col_choice">
+
+    <%=link_to (image_tag @question.image_b.url(:medium), class: "style_image"), question_path(@question,
+                                                  question: {
+                                                    votes_b: @question.votes_b + 1
+                                                  }), method: :patch, remote: true %>
+    <div class="caption">
+
+      <span id="<%= @question.id %>_description_b"><%= @question.description_b %></span>
+      <span id="<%= @question.id %>_votes_b"></span>
+    </div>
+
+  </div>
+    <br><br>
+    <p id="<%= @question.id %>_total_votes" class="text-right"><%= @question.votes_a + @question.votes_b %> total vote(s)</p>
+
+    <% if current_user %>
+      <%= link_to "Add Comment", new_question_comment_path(@question), id: "new_link_comment", remote: true  %>
+      <% if current_user.id == @question.user_id %>
+        <%= link_to "Delete", @question, method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+      <% end %>
+    <% end %>
+
+
+<div id="added_comment">
+
+  <% @question.comments.order('created_at DESC').each do |comment| %>
+    <%= render (comment) %>
+  <% end %>
+</div>

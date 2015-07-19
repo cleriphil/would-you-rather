@@ -45,10 +45,11 @@
 
     <div id="added_comment">
 
-      <% question.comments.order('created_at DESC').each do |comment| %>
+      <% question.comments.order('created_at DESC')[0..4].each do |comment| %>
         <%= render (comment) %>
       <% end %>
     </div>
 
+<%= link_to "View all Comments", question_path(question) %>
 
 </div>
