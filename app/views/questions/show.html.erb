@@ -51,9 +51,6 @@
     <% if current_user && (comment.user_id === current_user.id || current_user.admin? == true) %>
       <%= link_to 'Edit Comment',  edit_question_comment_path(@question, comment)%>
 
-      <%= link_to 'Delete Comment', question_comment_path(@question, comment),
-                                    :data => {:confirm => "Are you sure?",
-                                    :method => "delete"} %>
       <% end %>
   <% end %>
 </div>
