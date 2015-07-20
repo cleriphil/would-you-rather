@@ -1,6 +1,8 @@
 $(function () {
 
-  $('.edit_question input[type=submit]').click(function () {
-    $(this).parent('form').submit();
+  $(".style_image").click(function () {
+
+    $(this).removeClass("style_image");
+    $(this).addClass("bordered");
   });
 });
