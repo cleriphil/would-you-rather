@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+
   def index
     @questions = Question.all.sort_by{ |object| [object.created_at]}.reverse
   end
@@ -25,10 +26,6 @@ class QuestionsController < ApplicationController
       flash[:alert] = "There was a problem adding your question. Please try again."
       render :new
     end
-  end
-
-  def edit
-    @question = Question.find(params[:id])
   end
 
   def update
